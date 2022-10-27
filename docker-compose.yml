@@ -1,10 +1,13 @@
 services:
   export:
-    build: .
+    image: "ghcr.io/tk42/firestore-import-export"
     command: ["node", "export.js", "collecton_name"]
+    volumes:
+      - ./serviceAccountKey.json:/home/serviceAccountKey.json
 
   import:
-    build: .
-    command: ["node", "import.js", "./import/import-to-firestore.json"]
+    image: "ghcr.io/tk42/firestore-import-export"
+    command: ["node", "import.js", "./import-to-firestore.json"]
     volumes:
-      - ./import:/home/import
+      - ./serviceAccountKey.json:/home/serviceAccountKey.json
+      - ./import-to-firestore.json:/home/import-to-firestore.json
