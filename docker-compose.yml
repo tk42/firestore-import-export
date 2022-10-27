@@ -1,0 +1,10 @@
+services:
+  export:
+    build: .
+    command: ["node", "export.js", "nsplat@gmail.com"]
+
+  import:
+    build: .
+    command: ["node", "import.js", "./import/import-to-firestore.json"]
+    volumes:
+      - ./import:/home/import

@@ -32,10 +32,11 @@ let results = db.collection(collectionName)
 results.then(dt => {  
   getSubCollection(dt).then(() => {    
     // Write collection to JSON file
-    fs.writeFile("firestore-export.json", JSON.stringify(data), function(err) {
+    process.stdout.write(JSON.stringify(data), function(err) {
         if(err) {
             return console.log(err);
         }
+        console.log("\n\n");
         console.log("The file was saved!");
     });
   })  
