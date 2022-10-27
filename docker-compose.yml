@@ -1,7 +1,7 @@
 services:
   export:
     build: .
-    command: ["node", "export.js", "nsplat@gmail.com"]
+    command: ["node", "export.js", "collecton_name"]
 
   import:
     build: .
